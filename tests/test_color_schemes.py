@@ -15,6 +15,12 @@ class TestColor(unittest.TestCase):
         Color(0, 0, 0, 'rgb')
         Color(0, 0, 0, 'hls')
         self.assertRaises(Exception, Color, 0, 0, 0, 'x')
+        
+    def test_number_of_constructor_arguments(self):
+        self.assertRaises(Exception, Color)
+        self.assertRaises(Exception, Color, 2)
+        self.assertRaises(Exception, Color, 3)
+        self.assertRaises(Exception, Color, 5)
     
     def test_rbg_to_hls(self):
         color = Color(0, 117 / 255, 226 / 255, 'rgb')
@@ -30,6 +36,12 @@ class TestColor(unittest.TestCase):
         self.assertAlmostEqual(green, 117 / 255, self.places)
         self.assertAlmostEqual(blue, 226 / 255, self.places)
 
+    def test_html(self):
+        color = Color('#0075e2')
+        red, green, blue = color.rgb()
+        self.assertAlmostEqual(red, 0, self.places)
+        self.assertAlmostEqual(green, 117 / 255, self.places)
+        self.assertAlmostEqual(blue, 226 / 255, self.places)
 
 if __name__ == "__main__":
     unittest.main()
