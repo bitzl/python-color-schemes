@@ -1,0 +1,1 @@
+With the python-color-schemes library you can easily create beautiful color schemes.
